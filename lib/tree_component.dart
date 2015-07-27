@@ -186,28 +186,12 @@ class TreeNodeComponent {
     this._element = new LIElement();
     buildContent();
   }
-  
-  CheckboxInputElement checkBox;
 
   void buildContent() {
 
     for (var child in new List.from(_element.children)) {
       child.remove();
     }
-
-    checkBox = new CheckboxInputElement();
-    checkBox.checked = _node.isChecked;
-
-    checkBox.onClick.listen((_) {
-      if (_node.isChecked) {
-        _node.checked = false;
-      } else {
-        _node.checked = true;
-      }
-      
-      if(_node.listener != null)
-      _node.listener.onCheckAction(_node);
-    });
 
     if (_node.hasChildren) {
       ImageElement imgArrow = new ImageElement()
@@ -258,8 +242,6 @@ class TreeNodeComponent {
       ;
       _element.children.add(colorLabel);
     }
-    
-    _element.children.add(checkBox);
     _element.children.add(spanElementName); //TODO adicionar listener aqui!
 
   }

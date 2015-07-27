@@ -198,7 +198,7 @@ class TreeNodeComponent {
         //TODO null nos listeners
         if(_node.listener != null)
         _node.listener.onExpandAction(_node);
-      }
+      };
       arrow.onClick.listen(listener);
       spanElementNAme.onClick.listen(listener);
     } else {

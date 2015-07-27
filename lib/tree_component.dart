@@ -56,6 +56,7 @@ class TreeComponent {
     _elemUlRoot = new UListElement();
     _elemUlRoot.style.listStyleType = 'none';
     _elemUlRoot.style.paddingLeft = "0px";
+    _elemUlRoot.classes.add('tree-node');
 
     parentElement.children.add(_elemUlRoot);
    
@@ -77,10 +78,11 @@ class TreeComponent {
     
     UListElement elem = new UListElement();
     elem.style.listStyleType = 'none';
+    elem.classes.add('tree-node');
     
     int margin = 0 ;
     
-    if (!node.hasChildren) margin += 8 ;
+    //if (!node.hasChildren) margin += 16;
     
     if (margin > 0) {
       elem.style.marginLeft = "${margin}px";

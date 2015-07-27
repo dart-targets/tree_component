@@ -82,8 +82,6 @@ class TreeComponent {
     
     int margin = 0 ;
     
-    if (!node.hasChildren) margin += 16;
-    
     if (margin > 0) {
       elem.style.marginLeft = "${margin}px";
     }
@@ -154,6 +152,7 @@ class TreeNodeComponent {
   
   static String _ARROW_RIGHT =  "▶&nbsp;" ;
   static String _ARROW_DOWN = "▼&nbsp;" ;
+  static String _NO_ARROW = "&nbsp;&nbsp;";
   
   TreeComponent _treeComponent;
 
@@ -177,12 +176,11 @@ class TreeNodeComponent {
       child.remove();
     }
 
+    SpanElement arrow = new SpanElement()..innerHtml = _NO_ARROW;
+      
     if (_node.hasChildren) {
-      SpanElement arrow = new SpanElement()
-      ..innerHtml = ( _node.isExpanded ? _ARROW_DOWN : _ARROW_RIGHT) ;
-      
-      _element.children.add(arrow);
-      
+        
+      arrow.innerHtml = ( _node.isExpanded ? _ARROW_DOWN : _ARROW_RIGHT);
       arrow.onClick.listen((L) {
         if (_node.isExpanded) {
           _node.expanded = false;
@@ -198,9 +196,8 @@ class TreeNodeComponent {
         _node.listener.onExpandAction(_node);
       });
     }
-    else {
       
-    }
+    _element.children.add(arrow);
 
     SpanElement spanElementName = new SpanElement()
     ..text = _node.label;

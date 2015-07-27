@@ -200,7 +200,7 @@ class TreeNodeComponent {
         _node.listener.onExpandAction(_node);
       };
       arrow.onClick.listen(listener);
-      spanElementNAme.onClick.listen(listener);
+      spanElementName.onClick.listen(listener);
     } else {
     spanElementName.onClick.listen((L){
       if(_node.listener != null)

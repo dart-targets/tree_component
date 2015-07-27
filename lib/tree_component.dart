@@ -178,11 +178,14 @@ class TreeNodeComponent {
 
     SpanElement arrow = new SpanElement()..innerHtml = _ARROW_RIGHT;
     arrow.style.opacity = '0';
+
+    SpanElement spanElementName = new SpanElement()
+    ..text = _node.label;
       
     if (_node.hasChildren) {
       arrow.style.opacity = '1';
       arrow.innerHtml = ( _node.isExpanded ? _ARROW_DOWN : _ARROW_RIGHT);
-      arrow.onClick.listen((L) {
+      var listener = (L) {
         if (_node.isExpanded) {
           _node.expanded = false;
           _treeComponent._removeNodeChildren(_node);
@@ -195,18 +198,17 @@ class TreeNodeComponent {
         //TODO null nos listeners
         if(_node.listener != null)
         _node.listener.onExpandAction(_node);
-      });
-    }
-      
-    _element.children.add(arrow);
-
-    SpanElement spanElementName = new SpanElement()
-    ..text = _node.label;
-    
+      }
+      arrow.onClick.listen(listener);
+      spanElementNAme.onClick.listen(listener);
+    } else {
     spanElementName.onClick.listen((L){
       if(_node.listener != null)
       _node.listener.onClickAction(_node);
     });
+    }
+      
+    _element.children.add(arrow);
 
     if(_node.properties['color']!=null){
       DivElement colorLabel = new DivElement()

@@ -80,15 +80,13 @@ class TreeComponent {
     
     int margin = 0 ;
     
-    if (!node.hasChildren) margin += 16 ;
-    
-    if (node.properties['color'] == null) margin += 10+(3*2) ;
+    if (!node.hasChildren) margin += 8 ;
     
     if (margin > 0) {
       elem.style.marginLeft = "${margin}px";
     }
     
-    elem.style.paddingLeft = "${_margin}px";
+    //elem.style.paddingLeft = "${_margin}px";
 
     node._treeElement = elem;
 

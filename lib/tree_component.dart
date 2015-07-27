@@ -150,8 +150,8 @@ class TreeComponent {
 
 class TreeNodeComponent {
   
-  static String _ARROW_RIGHT =  "▶" ;
-  static String _ARROW_DOWN = "▼" ;
+  static String _ARROW_RIGHT =  "▶&nbsp;" ;
+  static String _ARROW_DOWN = "▼&nbsp;" ;
   
   TreeComponent _treeComponent;
 

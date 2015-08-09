@@ -150,9 +150,8 @@ class TreeComponent {
 
 class TreeNodeComponent {
   
-  static String _ARROW_RIGHT =  "▶&nbsp;" ;
-  static String _ARROW_DOWN = "▼&nbsp;" ;
-  static String _NO_ARROW = "&nbsp;&nbsp;&nbsp;";
+  static String ARROW_RIGHT =  "▶&nbsp;" ;
+  static String ARROW_DOWN = "▼&nbsp;" ;
   
   TreeComponent _treeComponent;
 
@@ -176,7 +175,7 @@ class TreeNodeComponent {
       child.remove();
     }
 
-    SpanElement arrow = new SpanElement()..innerHtml = _ARROW_RIGHT;
+    SpanElement arrow = new SpanElement()..innerHtml = ARROW_RIGHT;
     arrow.style.opacity = '0';
 
     SpanElement spanElementName = new SpanElement()
@@ -184,7 +183,7 @@ class TreeNodeComponent {
       
     if (_node.hasChildren) {
       arrow.style.opacity = '1';
-      arrow.innerHtml = ( _node.isExpanded ? _ARROW_DOWN : _ARROW_RIGHT);
+      arrow.innerHtml = ( _node.isExpanded ? ARROW_DOWN : ARROW_RIGHT);
       var listener = (L) {
         if (_node.isExpanded) {
           _node.expanded = false;
